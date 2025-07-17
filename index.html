@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Steve Bayonne - Développeur Frontend</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Cursor personnalisé -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Barre de progression -->
+    <div class="scroll-progress"></div>
+
+    <!-- Navigation -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <a href="#" class="logo">
+                    <span class="logo-text">Steve</span>
+                    <span class="logo-accent">B</span>
+                    <span class="logo-dot">.</span>
+                </a>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="#accueil" class="nav-link active">Accueil</a></li>
+                <li><a href="#apropos" class="nav-link">À propos</a></li>
+                <li><a href="#projets" class="nav-link">Projets</a></li>
+                <li><a href="#competences" class="nav-link">Compétences</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Changer de thème">
+                    <i class="fas fa-sun sun-icon"></i>
+                    <i class="fas fa-moon moon-icon"></i>
+                </button>
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Menu mobile">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Menu mobile -->
+        <div class="mobile-menu" id="mobile-menu">
+            <div class="mobile-menu-content">
+                <ul class="mobile-nav-menu">
+                    <li><a href="#accueil" class="mobile-nav-link">Accueil</a></li>
+                    <li><a href="#apropos" class="mobile-nav-link">À propos</a></li>
+                    <li><a href="#projets" class="mobile-nav-link">Projets</a></li>
+                    <li><a href="#competences" class="mobile-nav-link">Compétences</a></li>
+                    <li><a href="#contact" class="mobile-nav-link">Contact</a></li>
+                </ul>
+                <div class="mobile-social">
+                    <a href="https://www.linkedin.com/in/votre-profil" target="_blank" class="social-link">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://wa.me/242069339097" target="_blank" class="social-link">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="https://www.facebook.com/steve.bayonne.54" target="_blank" class="social-link">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Section Hero -->
+    <section id="accueil" class="hero">
+        <div class="hero-background">
+            <div class="hero-gradient"></div>
+            <div class="hero-particles"></div>
+        </div>
+        
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-greeting">
+                    <span class="greeting-text">Bonjour, je suis</span>
+                </div>
+                <h1 class="hero-title">
+                    <span class="title-line">Steve</span>
+                    <span class="title-line">Bayonne</span>
+                </h1>
+                <div class="hero-subtitle">
+                    <span class="subtitle-text">Développeur Frontend Junior</span>
+                    <div class="subtitle-cursor"></div>
+                </div>
+                <p class="hero-description">
+                    Passionné par le développement web moderne, je crée des expériences utilisateur 
+                    exceptionnelles avec les dernières technologies frontend.
+                </p>
+                <div class="hero-actions">
+                    <a href="#projets" class="btn btn-primary">
+                        <span>Voir mes projets</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <span>Me contacter</span>
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="hero-visual">
+                <div class="hero-image-container">
+                    <div class="hero-image-bg"></div>
+                    <img src="images/cv.jpg" 
+                         alt="Steve Bayonne" class="hero-image">
+                    <div class="hero-image-overlay"></div>
+                </div>
+                <div class="floating-elements">
+                    <div class="floating-element" data-speed="2">
+                        <i class="fab fa-html5"></i>
+                    </div>
+
+                    <div class="floating-element" data-speed="3">
+                        <i class="fab fa-css3-alt"></i>
+                    </div>
+
+                    <div class="floating-element" data-speed="1.5">
+                        <i class="fab fa-js"></i>
+                    </div>
+
+                    <div class="floating-element" data-speed="2.5">
+                        <i class="fab fa-react"></i>
+                    </div>
+
+                    <div class="floating-element" data-speed="2.5">
+                        <i class="fab fa-github"></i>
+                    </div>         
+            </div>
+        </div>
+        
+        <div class="scroll-indicator">
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
+            <span class="scroll-text">Défiler vers le bas</span>
+        </div>
+    </section>
+
+    <!-- Section À propos -->
+    <section id="apropos" class="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <h2 class="section-title">À propos de moi</h2>
+                <p class="section-subtitle">Découvrez mon parcours et ma passion pour le développement</p>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="about-intro">
+                        <h3>Bienvenue dans mon univers créatif</h3>
+                        <p>
+                            En formation continue dans le développement web frontend, je me concentre sur 
+                            la création d'interfaces utilisateur modernes et intuitives. Chaque projet est 
+                            une opportunité d'apprendre et de progresser dans ce domaine passionnant.
+                        </p>
+                    </div>
+                    
+                    <div class="about-journey">
+                        <h4>Mon parcours d'apprentissage</h4>
+                        <ul class="journey-list">
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Bases solides en HTML5 et CSS3</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Initiation au JavaScript moderne</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Maîtrise du Responsive Design</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-check-circle"></i>
+                                <span>Apprentissage des bonnes pratiques</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="10">0</span>
+                            <span class="stat-label">Projets réalisés</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="2">0</span>
+                            <span class="stat-label">Années d'apprentissage</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="100">0</span>
+                            <span class="stat-label">% Motivation</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-visual">
+                    <div class="about-image-container">
+                        <img src="images/WhatsApp Image 2025-03-14 à 15.58.21_ce0e98b0.jpg" 
+                             alt="Steve Bayonne au travail" class="about-image">
+                        <div class="about-image-decoration"></div>
+                    </div>
+                    
+                    <div class="skills-preview">
+                        <div class="skill-badge">
+                            <i class="fab fa-html5"></i>
+                            <span>HTML5</span>
+                        </div>
+
+                        <div class="skill-badge">
+                            <i class="fab fa-css3-alt"></i>
+                            <span>CSS3</span>
+                        </div>
+
+                        <div class="skill-badge">
+                            <i class="fab fa-js-square"></i>
+                            <span>JavaScript</span>
+                        </div>
+
+                        <div class="skill-badge">
+                            <i class="fab fa-node"></i>
+                            <span>Node.js</span>
+                        </div>
+                        
+                        <div class="skill-badge">
+                            <i class="fab fa-react"></i>
+                            <span>React</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Projets -->
+    <section id="projets" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <h2 class="section-title">Mes Projets</h2>
+                <p class="section-subtitle">Découvrez mes réalisations et expérimentations</p>
+            </div>
+            
+            <div class="projects-filter">
+                <button class="filter-btn active" data-filter="all">Tous</button>
+                <button class="filter-btn" data-filter="web">Web</button>
+                <button class="filter-btn" data-filter="mobile">Mobile</button>
+                <button class="filter-btn" data-filter="design">Design</button>
+            </div>
+            
+            <div class="projects-grid">
+                <article class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="images/projet1.png" 
+                             alt="Gestion de Pressing" loading="lazy">
+                        <div class="project-overlay">
+                            <div class="project-actions">
+                                <a href="https://www.stevepressing.infy.uk/" target="_blank" class="project-btn">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <button class="project-btn" onclick="openProjectModal('pressing')">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-category">Application Web</div>
+                        <h3 class="project-title">Gestion de Pressing</h3>
+                        <p class="project-description">
+                            Application web complète pour la gestion d'un pressing avec système de suivi des commandes.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="images/projet3.png" 
+                             alt="E-commerce" loading="lazy">
+                        <div class="project-overlay">
+                            <div class="project-actions">
+                                <a href="https://steveshop.free.nf/" target="_blank" class="project-btn">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <button class="project-btn" onclick="openProjectModal('ecommerce')">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-category">E-commerce</div>
+                        <h3 class="project-title">Boutique en ligne</h3>
+                        <p class="project-description">
+                            Plateforme e-commerce moderne avec panier d'achat et système de paiement intégré.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="images/projet4.png" 
+                             alt="Site immobilier" loading="lazy">
+                        <div class="project-overlay">
+                            <div class="project-actions">
+                                <a href="https://stevebay0605.github.io/immo/" target="_blank" class="project-btn">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <button class="project-btn" onclick="openProjectModal('immobilier')">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <div class="project-category">Immobilier</div>
+                        <h3 class="project-title">Site Immobilier</h3>
+                        <p class="project-description">
+                            Plateforme de vente immobilière avec recherche avancée et galerie interactive.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Compétences -->
+    <section id="competences" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <h2 class="section-title">Mes Compétences</h2>
+                <p class="section-subtitle">Technologies et outils que je maîtrise</p>
+            </div>
+            
+            <div class="skills-content">
+                <div class="skills-categories">
+                    <div class="skill-category">
+                        <div class="category-header">
+                            <i class="fas fa-code"></i>
+                            <h3>Technologies Frontend</h3>
+                        </div>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">HTML5</span>
+                                    <span class="skill-percentage">85%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="85%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">CSS3</span>
+                                    <span class="skill-percentage">80%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="80%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">JavaScript</span>
+                                    <span class="skill-percentage">65%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="65%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-category">
+                        <div class="category-header">
+                            <i class="fas fa-tools"></i>
+                            <h3>Outils & Frameworks</h3>
+                        </div>
+                        <div class="skills-list">
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Responsive Design</span>
+                                    <span class="skill-percentage">75%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="75%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Git</span>
+                                    <span class="skill-percentage">60%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="60%"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="skill-item">
+                                <div class="skill-info">
+                                    <span class="skill-name">Bootstrap</span>
+                                    <span class="skill-percentage">55%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" data-width="55%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="skills-visual">
+                    <div class="skills-chart">
+                        <div class="chart-container">
+                            <canvas id="skillsChart" width="300" height="300"></canvas>
+                        </div>
+                    </div>
+                    
+                    <div class="learning-path">
+                        <h4>Prochaines étapes</h4>
+                        <ul class="learning-list">
+                            <li>
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>React.js</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>Node.js</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>TypeScript</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Contact -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">04</span>
+                <h2 class="section-title">Contactez-moi</h2>
+                <p class="section-subtitle">Discutons de votre prochain projet</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-intro">
+                        <h3>Travaillons ensemble</h3>
+                        <p>
+                            Je suis toujours ouvert aux nouvelles opportunités et collaborations. 
+                            N'hésitez pas à me contacter pour discuter de vos projets.
+                        </p>
+                    </div>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="method-info">
+                                <h4>Email</h4>
+                                <a href="mailto:bayonnestevekelly@gmail.com">bayonnestevekelly@gmail.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="method-info">
+                                <h4>Téléphone</h4>
+                                <a href="tel:+242069339097">+242 06 933 90 97</a>
+                                <a href="tel:+242055852359">+242 05 585 23 59</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="method-info">
+                                <h4>Localisation</h4>
+                                <span>Brazzaville, Congo</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/votre-profil" target="_blank" class="social-link">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://wa.me/242069339097" target="_blank" class="social-link">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://www.facebook.com/steve.bayonne.54" target="_blank" class="social-link">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://github.com/stevebay0605" target="_blank" class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <form class="contact-form" id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Nom complet</label>
+                        <input type="text" id="name" name="name" required>
+                        <span class="form-line"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Adresse email</label>
+                        <input type="email" id="email" name="email" required>
+                        <span class="form-line"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Sujet</label>
+                        <input type="text" id="subject" name="subject" required>
+                        <span class="form-line"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                        <span class="form-line"></span>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">
+                        <span>Envoyer le message</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <span class="logo-text">Steve</span>
+                        <span class="logo-accent">B</span>
+                        <span class="logo-dot">.</span>
+                    </a>
+                    <p>Développeur Frontend passionné par la création d'expériences web exceptionnelles.</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Navigation</h4>
+                        <ul>
+                            <li><a href="#accueil">Accueil</a></li>
+                            <li><a href="#apropos">À propos</a></li>
+                            <li><a href="#projets">Projets</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4>Projets</h4>
+                        <ul>
+                            <li><a href="https://www.stevepressing.infy.uk/" target="_blank">Gestion Pressing</a></li>
+                            <li><a href="https://steveshop.free.nf/" target="_blank">E-commerce</a></li>
+                            <li><a href="https://stevebay0605.github.io/immo/" target="_blank">Site Immobilier</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-section">
+                        <h4>Contact</h4>
+                        <ul>
+                            <li><a href="mailto:bayonnestevekelly@gmail.com">Email</a></li>
+                            <li><a href="tel:+242069339097">Téléphone</a></li>
+                            <li><span>Brazzaville, Congo</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Steve Bayonne. Tous droits réservés.</p>
+
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal pour les projets -->
+    <div class="modal" id="project-modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeProjectModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-body" id="modal-body">
+                <!-- Contenu dynamique -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
