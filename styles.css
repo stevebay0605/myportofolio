@@ -1626,6 +1626,7 @@ section {
     
     .hero-title {
         font-size: var(--font-size-5xl);
+        text-align: center;
     }
     
     .hero-actions {
@@ -1666,10 +1667,13 @@ section {
     
     .hero-title {
         font-size: var(--font-size-4xl);
+        
     }
     
     .hero-subtitle {
         font-size: var(--font-size-xl);
+        text-align: center;
+        justify-content: center;
     }
     
     .projects-grid {
@@ -1694,6 +1698,81 @@ section {
     .social-links {
         justify-content: center;
     }
+    
+    /* Ajustements généraux pour éviter les overflow */
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+        position: relative;
+    }
+
+    /* Ajustements des sections */
+    section {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    /* Ajustements des conteneurs */
+    .container {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 var(--spacing-md);
+        overflow-x: hidden;
+    }
+
+    /* Ajustements des grilles */
+    .projects-grid,
+    .skills-content,
+    .about-content,
+    .contact-content {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Ajustements des images */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Ajustements du texte */
+    p, h1, h2, h3, h4, h5, h6 {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    /* Ajustements des cartes de projet */
+    .project-card {
+        width: 100%;
+        margin: 0 0 var(--spacing-xl);
+    }
+
+    /* Ajustements du formulaire */
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Ajustements du menu mobile */
+    .mobile-menu {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    /* Ajustements du graphique des compétences */
+    .chart-container {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    /* Ajustements des flottants */
+    .floating-elements {
+        display: none;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1704,7 +1783,7 @@ section {
     }
     
     .container {
-        padding: 0 var(--spacing-md);
+        padding: 0 var(--spacing-sm);
     }
     
     .nav {
@@ -1725,6 +1804,7 @@ section {
     
     .hero-subtitle {
         font-size: var(--font-size-lg);
+        justify-content: center;
     }
     
     .hero-description {
@@ -1831,6 +1911,121 @@ section {
     }
 }
 
+/* Corrections overflow mobile */
+@media (max-width: 768px) {
+    /* Ajustements généraux pour éviter les overflow */
+    html, body {
+        overflow-x: hidden;
+        width: 100%;
+        position: relative;
+    }
+
+    /* Ajustements des sections */
+    section {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    /* Ajustements des conteneurs */
+    .container {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 var(--spacing-md);
+        overflow-x: hidden;
+    }
+
+    /* Ajustements des grilles */
+    .projects-grid,
+    .skills-content,
+    .about-content,
+    .contact-content {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Ajustements des images */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Ajustements du texte */
+    p, h1, h2, h3, h4, h5, h6 {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    /* Ajustements des cartes de projet */
+    .project-card {
+        width: 100%;
+        margin: 0 0 var(--spacing-xl);
+    }
+
+    /* Ajustements du formulaire */
+    .form-group input,
+    .form-group textarea {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Ajustements du menu mobile */
+    .mobile-menu {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    /* Ajustements du graphique des compétences */
+    .chart-container {
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    /* Ajustements des flottants */
+    .floating-elements {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Ajustements supplémentaires pour très petits écrans */
+    .container {
+        padding: 0 var(--spacing-sm);
+    }
+
+    .hero-title {
+        font-size: var(--font-size-2xl);
+        word-wrap: break-word;
+    }
+
+    .hero-content {
+        padding: var(--spacing-xl) 0;
+    }
+
+    .btn {
+        white-space: nowrap;
+        padding: var(--spacing-sm) var(--spacing-md);
+    }
+
+    .tech-tag {
+        font-size: var(--font-size-xs);
+        padding: var(--spacing-xs) var(--spacing-sm);
+    }
+
+    .project-tech {
+        flex-wrap: wrap;
+        gap: var(--spacing-xs);
+    }
+
+    .modal-content {
+        width: 95%;
+        margin: var(--spacing-sm);
+        max-height: 85vh;
+    }
+}
+
 /* Utilitaires */
 .fade-in {
     opacity: 0;
@@ -1866,4 +2061,5 @@ section {
 *:focus-visible {
     outline: 2px solid var(--primary-color);
     outline-offset: 2px;
+    text-align: center;
 }
