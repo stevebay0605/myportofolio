@@ -98,6 +98,11 @@ const ThemeManager = {
                 theme === 'dark' ? 'Passer au thème clair' : 'Passer au thème sombre'
             );
         }
+        
+        // Mettre à jour les couleurs du graphique
+        if (typeof updateChartColors === 'function') {
+            updateChartColors();
+        }
     },
 
     toggle() {
@@ -496,7 +501,6 @@ const FormManager = {
     },
 
     async handleFormSubmission(form) {
-        const formData = new FormData(form);
         const submitButton = form.querySelector('button[type="submit"]');
         
         // Désactiver le bouton pendant l'envoi
@@ -504,15 +508,29 @@ const FormManager = {
         submitButton.innerHTML = '<span>Envoi en cours...</span><i class="fas fa-spinner fa-spin"></i>';
         
         try {
-            // Simuler l'envoi du formulaire
-            await new Promise(resolve => setTimeout(resolve, 2000));
+            // Envoi via EmailJS
+            const templateParams = {
+                name: form.name.value,
+                email: form.email.value,
+                subject: form.subject.value,
+                message: form.message.value
+            };
+            
+            // Envoi de l'email (auto-réponse configurée dans EmailJS)
+            await emailjs.send('moi', 'template_s5f5gtu', templateParams);
             
             // Afficher un message de succès
-            this.showNotification('Message envoyé avec succès !', 'success');
+            this.showNotification('Message envoyé avec succès ! Je vous répondrai rapidement.', 'success');
             form.reset();
             
+            // Retirer la classe focused des form-groups
+            document.querySelectorAll('.form-group').forEach(group => {
+                group.classList.remove('focused');
+            });
+            
         } catch (error) {
-            this.showNotification('Erreur lors de l\'envoi du message.', 'error');
+            console.error('Erreur EmailJS:', error);
+            this.showNotification('Erreur lors de l\'envoi du message. Veuillez réessayer.', 'error');
         } finally {
             // Réactiver le bouton
             submitButton.disabled = false;
@@ -556,22 +574,34 @@ const FormManager = {
     }
 };
 
+// Fonction pour obtenir les couleurs selon le thème
+function getChartColors() {
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    return {
+        lineColor: isDark ? 'rgba(255, 255, 255, 0.2)' : 'rgba(0, 0, 0, 0.1)',
+        labelColor: isDark ? 'rgba(255, 255, 255, 0.8)' : 'rgba(0, 0, 0, 0.8)',
+        tickColor: isDark ? 'rgba(255, 255, 255, 0.6)' : 'rgba(0, 0, 0, 0.5)'
+    };
+}
+
 // Configuration du graphique des compétences
 const ctx = document.getElementById('skillsChart').getContext('2d');
+let colors = getChartColors();
+
 const skillsChart = new Chart(ctx, {
     type: 'radar',
     data: {
-        labels: ['HTML5', 'CSS3', 'JavaScript', 'Responsive Design', 'Git', 'Bootstrap'],
+        labels: ['HTML5', 'React', 'Django', 'DRF', 'MySQL', 'API REST', 'Git', 'VS Code', 'npm/pip'],
         datasets: [{
             label: 'Niveau de compétence',
-            data: [85, 80, 65, 75, 60, 55],
-            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-            borderColor: 'rgba(75, 192, 192, 1)',
+            data: [90, 65, 60, 65, 65, 65, 75, 85, 70],
+            backgroundColor: 'rgba(102, 126, 234, 0.2)',
+            borderColor: 'rgba(102, 126, 234, 1)',
             borderWidth: 2,
-            pointBackgroundColor: 'rgba(75, 192, 192, 1)',
+            pointBackgroundColor: 'rgba(102, 126, 234, 1)',
             pointBorderColor: '#fff',
             pointHoverBackgroundColor: '#fff',
-            pointHoverBorderColor: 'rgba(75, 192, 192, 1)'
+            pointHoverBorderColor: 'rgba(102, 126, 234, 1)'
         }]
     },
     options: {
@@ -579,13 +609,13 @@ const skillsChart = new Chart(ctx, {
             r: {
                 angleLines: {
                     display: true,
-                    color: 'rgba(255, 255, 255, 0.2)'
+                    color: colors.lineColor
                 },
                 grid: {
-                    color: 'rgba(255, 255, 255, 0.2)'
+                    color: colors.lineColor
                 },
                 pointLabels: {
-                    color: 'rgba(255, 255, 255, 0.8)',
+                    color: colors.labelColor,
                     font: {
                         size: 12,
                         family: 'Inter'
@@ -595,7 +625,7 @@ const skillsChart = new Chart(ctx, {
                 suggestedMax: 100,
                 ticks: {
                     stepSize: 20,
-                    color: 'rgba(255, 255, 255, 0.6)',
+                    color: colors.tickColor,
                     backdropColor: 'transparent'
                 }
             }
@@ -609,6 +639,16 @@ const skillsChart = new Chart(ctx, {
         maintainAspectRatio: false
     }
 });
+
+// Mettre à jour les couleurs du graphique lors du changement de thème
+function updateChartColors() {
+    const colors = getChartColors();
+    skillsChart.options.scales.r.angleLines.color = colors.lineColor;
+    skillsChart.options.scales.r.grid.color = colors.lineColor;
+    skillsChart.options.scales.r.pointLabels.color = colors.labelColor;
+    skillsChart.options.scales.r.ticks.color = colors.tickColor;
+    skillsChart.update();
+}
 
 // Fonctions globales pour les modals (compatibilité avec le HTML)
 function openProjectModal(projectId) {
@@ -673,6 +713,52 @@ function openProjectModal(projectId) {
                     Voir le projet
                 </a>
             </div>
+        `,
+        taskflow: `
+            <h2>TaskFlow</h2>
+            <img src="images/projet5.png" 
+                 alt="TaskFlow" style="width: 100%; border-radius: 8px; margin: 20px 0;">
+            <p>Application moderne de gestion de tâches développée avec React, offrant une interface 
+               intuitive pour organiser et suivre vos projets avec efficacité.</p>
+            <h3>Fonctionnalités principales :</h3>
+            <ul>
+                <li>Création et gestion de tâches</li>
+                <li>Organisation par catégories</li>
+                <li>Interface utilisateur moderne et responsive</li>
+                <li>Développée avec React et composants réutilisables</li>
+            </ul>
+            <div style="margin-top: 20px;">
+                <a href="https://stevetaskflow.netlify.app/" target="_blank" class="btn btn-primary">
+                    Voir le projet
+                </a>
+            </div>
+        `,
+        'ecommerce-v2': `
+            <h2>E-commerce v2</h2>
+            <img src="images/projet6.png" 
+                 alt="E-commerce v2" style="width: 100%; border-radius: 8px; margin: 20px 0;">
+            <p>Plateforme e-commerce full-stack moderne combinant React pour le frontend, 
+               Django pour le backend et Tailwind CSS pour un design élégant et responsive.</p>
+            <h3>Technologies utilisées :</h3>
+            <ul>
+                <li><strong>Frontend:</strong> React avec composants modernes</li>
+                <li><strong>Backend:</strong> Django REST Framework</li>
+                <li><strong>Styling:</strong> Tailwind CSS</li>
+                <li><strong>Features:</strong> Authentification, panier, paiement</li>
+            </ul>
+            <h3>Fonctionnalités principales :</h3>
+            <ul>
+                <li>Authentification utilisateur sécurisée</li>
+                <li>Gestion de panier avancée</li>
+                <li>Système de paiement intégré</li>
+                <li>API RESTful avec Django</li>
+                <li>Interface utilisateur moderne et responsive</li>
+            </ul>
+            <div style="margin-top: 20px;">
+                <a href="https://stevecom.netlify.app/" target="_blank" class="btn btn-primary">
+                    Voir le projet
+                </a>
+            </div>
         `
     };
     
@@ -709,11 +795,35 @@ const App = {
         AnimationManager.init();
         ProjectManager.init();
         FormManager.init();
+        this.initBackToTop();
         
         // Événements globaux
         this.bindGlobalEvents();
         
         console.log('✅ Application initialisée avec succès !');
+    },
+
+    initBackToTop() {
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        if (!backToTopButton) return;
+        
+        // Afficher/masquer le bouton selon le scroll
+        window.addEventListener('scroll', Utils.throttle(() => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
+            }
+        }, 100));
+        
+        // Gérer le clic sur le bouton
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
     },
 
     bindGlobalEvents() {
