@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://stevebay.cg/</loc>
+    <lastmod>2026-01-30</lastmod>
+    <priority>1.0</priority>
+  </url>
+
+  <url>
+    <loc>https://stevebay.cg/#about</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://stevebay.cg/#projects</loc>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://stevebay.cg/#skills</loc>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://stevebay.cg/#contact</loc>
+    <priority>0.6</priority>
+  </url>
+
+</urlset>
